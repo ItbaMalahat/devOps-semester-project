@@ -1,0 +1,39 @@
+version: '3'
+services:
+  # Frontend service (React)
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"   # Expose React app on port 3000
+    networks:
+      - app-network
+
+  # Backend service (Node.js)
+  backend:
+    build:
+      context: .  # Set the build context to the root directory
+      dockerfile: ./backend/Dockerfile  # Ensure it's pointing to the backend Dockerfile
+    ports:
+      - "5000:5000"   # Expose Node.js app on port 5000
+    networks:
+      - app-network
+    depends_on:
+      - db  # Ensure that the database container is up before starting the backend
+
+  # Database service (PostgreSQL)
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"  # Expose PostgreSQL database on port 5432
+    networks:
+      - app-network
+
+# Define a network so all containers can communicate with each other
+networks:
+  app-network:
+    driver: bridge
