@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Simple React JS Project
 
 ## What is the use of this Repo
@@ -75,3 +76,6 @@ https://github.com/facebook/create-react-app
 **ReactJS** : Refer to https://reactjs.org/ to understand the concepts of ReactJS
 
 **React Bootstrap** : Refer to https://react-bootstrap.github.io/getting-started/introduction/ to understand how to use React Bootstrap
+=======
+# devOps-semester-project
+>>>>>>> d7fc9f2439d84de30c892c8291b5a9563c62b2d9
